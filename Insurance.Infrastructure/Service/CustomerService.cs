@@ -24,13 +24,17 @@ namespace Insurance.Infrastructure.Service
             
             var data = mapper.Map<Customer>(dto);
             await db.Customers.AddAsync(data);
-            //var add = new Customer_Address
-            //{
-            //    Customer_Id=dto.Customer_Id,
-            //    status=dto.status
+            
+            await db.SaveChangesAsync();
 
-            //};
-            //await db.Customer_Addresses.AddAsync(add);
+            var lastrecord = db.Customers.OrderByDescending(x => x.Customer_Id).FirstOrDefault();
+            var obj = new Customer_Address
+            {
+                Customer_Id = lastrecord.Customer_Id,
+                status = lastrecord.status
+
+            };
+            await db.Customer_Addresses.AddAsync(obj);
             await db.SaveChangesAsync();
         }
 
@@ -41,6 +45,8 @@ namespace Insurance.Infrastructure.Service
                 throw new Exception("Customer not found Or its deleted already");
             }
             data.status = "InActive";
+            var add = await db.Customer_Addresses.FindAsync(id);
+            add.status = "InActive";
             await db.SaveChangesAsync();
         }
 
