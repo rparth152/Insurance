@@ -15,6 +15,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("dbconn")));
 builder.Services.AddScoped<ICustomerService, CustomerService>();
+builder.Services.AddScoped<IAddressService, AddressService>();  
 builder.Services.AddAutoMapper(typeof(Mapping));
 var app = builder.Build();
 

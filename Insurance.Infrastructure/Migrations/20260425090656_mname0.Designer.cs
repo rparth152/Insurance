@@ -4,6 +4,7 @@ using Insurance.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Insurance.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260425090656_mname0")]
+    partial class mname0
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -123,7 +126,8 @@ namespace Insurance.Infrastructure.Migrations
 
                     b.HasKey("Address_Id");
 
-                    b.HasIndex("Customer_Id");
+                    b.HasIndex("Customer_Id")
+                        .IsUnique();
 
                     b.ToTable("Customer_Addresses");
                 });
@@ -228,8 +232,8 @@ namespace Insurance.Infrastructure.Migrations
             modelBuilder.Entity("Insurance.Domain.Model.Customer_Address", b =>
                 {
                     b.HasOne("Insurance.Domain.Model.Customer", "Customer")
-                        .WithMany("Address")
-                        .HasForeignKey("Customer_Id")
+                        .WithOne("Address")
+                        .HasForeignKey("Insurance.Domain.Model.Customer_Address", "Customer_Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -257,7 +261,8 @@ namespace Insurance.Infrastructure.Migrations
 
             modelBuilder.Entity("Insurance.Domain.Model.Customer", b =>
                 {
-                    b.Navigation("Address");
+                    b.Navigation("Address")
+                        .IsRequired();
 
                     b.Navigation("Policies");
                 });

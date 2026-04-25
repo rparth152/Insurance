@@ -26,18 +26,18 @@ namespace Insurance.Domain.Model
         //[RegularExpression(@"^[0-9]*$", ErrorMessage = "Please enter only numeric values")]
 
         public string? PinCode { get; set; } 
-        public string? status { get; set; } = "Active";
+        public string? status { get; set; }
 
         public int CreatedBy { get; set; }
 
         public DateOnly CreatedAt { get; set; }
 
-        public int? ModifiedBy { get; set; } = null;
+        public int? ModifiedBy { get; set; } 
 
-        public DateOnly? ModifiedAt { get; set; } = null;
+        public DateOnly? ModifiedAt { get; set; }
 
-        public int? DeletedBy { get; set; } = null;
+        public int? DeletedBy { get; set; }
 
-        public DateOnly? DeletedAt { get; set; } = null;
+        public DateOnly? DeletedAt { get; set; }
     }
 }

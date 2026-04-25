@@ -14,6 +14,7 @@ namespace Insurance.Application.Mapping
         public Mapping()
         {
             CreateMap<CustomerDTO, Customer>().ReverseMap();
+            CreateMap<Customer_addressDTO, Customer_Address>().ReverseMap();
         }
     }
 }

@@ -3,6 +3,8 @@ using Insurance.Application.DTO;
 using Insurance.Application.Interface;
 using Insurance.Domain.Model;
 using Insurance.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Update.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,8 +47,13 @@ namespace Insurance.Infrastructure.Service
                 throw new Exception("Customer not found Or its deleted already");
             }
             data.status = "InActive";
-            var add = await db.Customer_Addresses.FindAsync(id);
-            add.status = "InActive";
+            var add =await db.Customer_Addresses.Where(x => x.Customer_Id == id).ToListAsync();
+            foreach (var addr in add)
+            {
+                addr.status = "InActive";
+            }
+
+
             await db.SaveChangesAsync();
         }
 

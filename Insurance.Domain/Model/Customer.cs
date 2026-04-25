@@ -28,20 +28,20 @@ namespace Insurance.Domain.Model
         [StringLength(10, MinimumLength = 10, ErrorMessage = "Number must be 10 digits")]
         public string Contact { get; set; }
        
-        public string status { get; set; }="Active";
+        public string status { get; set; }
 
         public int CreatedBy { get; set; }
 
         public DateOnly CreatedAt { get; set; }
 
-        public int? ModifiedBy { get; set; } = null;
+        public int? ModifiedBy { get; set; }
 
-        public DateOnly? ModifiedAt { get; set; } = null;
+        public DateOnly? ModifiedAt { get; set; }
 
-        public int? DeletedBy { get; set; } = null;
+        public int? DeletedBy { get; set; }
 
-        public DateOnly? DeletedAt { get; set; } = null;
-        public Customer_Address Address { get; set; }
+        public DateOnly? DeletedAt { get; set; }
+        public ICollection<Customer_Address> Address { get; set; }
 
         //one customer to many policy
         public ICollection<InsurancePolicy> Policies { get; set; }
