@@ -17,27 +17,27 @@ namespace Insurance.Domain.Model
         [ForeignKey("Customer_Id")]
         public Customer Customer { get; set; } 
         //[Required(ErrorMessage ="Req")]
-        public string Street { get; set; } = null;
+        public string? Street { get; set; } 
         //[Required(ErrorMessage = "Req")]
-        public string City { get; set; } = null;
+        public string? City { get; set; } 
         //[Required(ErrorMessage = "Req")]
-        public string State { get; set; } = null;
+        public string? State { get; set; } 
         //[Required(ErrorMessage = "Req")]
         //[RegularExpression(@"^[0-9]*$", ErrorMessage = "Please enter only numeric values")]
 
-        public string PinCode { get; set; } = null;
-        public string status { get; set; } = null;
+        public string? PinCode { get; set; } 
+        public string? status { get; set; } = "Active";
 
         public int CreatedBy { get; set; }
 
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateOnly CreatedAt { get; set; }
 
         public int? ModifiedBy { get; set; } = null;
 
-        public DateTime? ModifiedAt { get; set; } = null;
+        public DateOnly? ModifiedAt { get; set; } = null;
 
         public int? DeletedBy { get; set; } = null;
 
-        public DateTime? DeletedAt { get; set; } = null;
+        public DateOnly? DeletedAt { get; set; } = null;
     }
 }

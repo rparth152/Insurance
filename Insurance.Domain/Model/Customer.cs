@@ -32,15 +32,15 @@ namespace Insurance.Domain.Model
 
         public int CreatedBy { get; set; }
 
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateOnly CreatedAt { get; set; }
 
         public int? ModifiedBy { get; set; } = null;
 
-        public DateTime? ModifiedAt { get; set; } = null;
+        public DateOnly? ModifiedAt { get; set; } = null;
 
         public int? DeletedBy { get; set; } = null;
 
-        public DateTime? DeletedAt { get; set; } = null;
+        public DateOnly? DeletedAt { get; set; } = null;
         public Customer_Address Address { get; set; }
 
         //one customer to many policy

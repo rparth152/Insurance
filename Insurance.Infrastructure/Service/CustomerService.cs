@@ -24,13 +24,13 @@ namespace Insurance.Infrastructure.Service
             
             var data = mapper.Map<Customer>(dto);
             await db.Customers.AddAsync(data);
-            var add = new Customer_Address
-            {
-                Customer_Id=dto.Customer_Id,
-                status=dto.status
+            //var add = new Customer_Address
+            //{
+            //    Customer_Id=dto.Customer_Id,
+            //    status=dto.status
 
-            };
-            await db.Customer_Addresses.AddAsync(add);
+            //};
+            //await db.Customer_Addresses.AddAsync(add);
             await db.SaveChangesAsync();
         }
 
@@ -60,7 +60,9 @@ namespace Insurance.Infrastructure.Service
             if (data == null || data.DeletedAt != null) {
                 throw new Exception("Customer not found Or its deleted already");
             }
-            mapper.Map<CustomerDTO>(data);
+            var res=mapper.Map(dto, data);
+             db.Customers.Update(res);
+            await db.SaveChangesAsync();
         }
     }
 }

@@ -17,15 +17,15 @@ namespace Insurance.Domain.Model
 
         public int CreatedBy { get; set; }
 
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateOnly CreatedAt { get; set; } 
 
         public int? ModifiedBy { get; set; }
 
-        public DateTime? ModifiedAt { get; set; }
+        public DateOnly? ModifiedAt { get; set; }
 
         public int? DeletedBy { get; set; }
 
-        public DateTime? DeletedAt { get; set; }
+        public DateOnly? DeletedAt { get; set; }
         public ICollection<InsurancePolicy> Policies { get; set; }
     }
 }

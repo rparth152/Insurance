@@ -4,6 +4,7 @@ using Insurance.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Insurance.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260425034323_mname1")]
+    partial class mname1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,8 +38,8 @@ namespace Insurance.Infrastructure.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
-                    b.Property<DateOnly>("CreatedAt")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("CreatedBy")
                         .HasColumnType("int");
@@ -48,8 +51,8 @@ namespace Insurance.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateOnly?>("DeletedAt")
-                        .HasColumnType("date");
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("DeletedBy")
                         .HasColumnType("int");
@@ -62,8 +65,8 @@ namespace Insurance.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateOnly?>("ModifiedAt")
-                        .HasColumnType("date");
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("ModifiedBy")
                         .HasColumnType("int");
@@ -97,14 +100,14 @@ namespace Insurance.Infrastructure.Migrations
                     b.Property<int>("Customer_Id")
                         .HasColumnType("int");
 
-                    b.Property<DateOnly?>("DeletedAt")
-                        .HasColumnType("date");
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("DeletedBy")
                         .HasColumnType("int");
 
-                    b.Property<DateOnly?>("ModifiedAt")
-                        .HasColumnType("date");
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("ModifiedBy")
                         .HasColumnType("int");
@@ -137,8 +140,8 @@ namespace Insurance.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Policy_Id"));
 
-                    b.Property<DateOnly>("CreatedAt")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("CreatedBy")
                         .HasColumnType("int");
@@ -146,14 +149,14 @@ namespace Insurance.Infrastructure.Migrations
                     b.Property<int>("Customer_Id")
                         .HasColumnType("int");
 
-                    b.Property<DateOnly?>("DeletedAt")
-                        .HasColumnType("date");
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("DeletedBy")
                         .HasColumnType("int");
 
-                    b.Property<DateOnly?>("ModifiedAt")
-                        .HasColumnType("date");
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("ModifiedBy")
                         .HasColumnType("int");
@@ -161,15 +164,15 @@ namespace Insurance.Infrastructure.Migrations
                     b.Property<int>("PolicyType_Id")
                         .HasColumnType("int");
 
-                    b.Property<DateOnly>("Policy_End")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("Policy_End")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Policy_Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateOnly>("Policy_Start")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("Policy_Start")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("Premium_Ammount")
                         .HasColumnType("int");
@@ -195,14 +198,14 @@ namespace Insurance.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Type_Id"));
 
-                    b.Property<DateOnly>("CreatedAt")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("CreatedBy")
                         .HasColumnType("int");
 
-                    b.Property<DateOnly?>("DeletedAt")
-                        .HasColumnType("date");
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("DeletedBy")
                         .HasColumnType("int");
@@ -211,8 +214,8 @@ namespace Insurance.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateOnly?>("ModifiedAt")
-                        .HasColumnType("date");
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("ModifiedBy")
                         .HasColumnType("int");
