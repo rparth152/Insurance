@@ -10,6 +10,7 @@ namespace Insurance.Application.DTO
     {
         public string Type_Name { get; set; }
         public string Description { get; set; }
+        public string Status { get; set; }
 
     }
 }

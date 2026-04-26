@@ -9,7 +9,7 @@ namespace Insurance.Application.Interface
 {
     public interface IPolicyTypeService
     {
-        Task<bool> AddTypePolicy();
+        Task<bool> AddTypePolicy(PolicyTypeDTO dto);
         Task<PolicyTypeDTO> GetTypeById(int id);
         Task<bool> UpdateType(int id, PolicyTypeDTO dto);
         Task<bool> DeleteType(int id);
