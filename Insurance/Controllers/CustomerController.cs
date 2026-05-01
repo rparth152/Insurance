@@ -24,6 +24,11 @@ namespace Insurance.Controllers
             var data =await service.GetById(id);
             return Ok(new { Message = "data fetched", data });
         }
+        [HttpGet]
+        public async Task<IActionResult> GetAll() { 
+            var data = await service.GetAllCustomer();
+            return Ok(new { Message = "data fetched", data });
+        }
         [HttpPut]
         [Route("{id}")]
         public async Task<IActionResult> UpdateCustomer(int id, CustomerDTO dto) { 

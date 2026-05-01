@@ -25,6 +25,7 @@ namespace Insurance.Infrastructure.Service
         {
             
             var data = mapper.Map<Customer>(dto);
+            data.status = "Active"; 
             await db.Customers.AddAsync(data);
             
             await db.SaveChangesAsync();
@@ -66,7 +67,12 @@ namespace Insurance.Infrastructure.Service
             return mapper.Map<CustomerDTO>(data);
 
         }
-
+        public async Task<List<CustomerDTO>> GetAllCustomer() {
+            
+            var data = await db.Customers.Where(x => x.status == "Active").ToListAsync();
+            
+            return mapper.Map<List<CustomerDTO>>(data);
+        }
         public async Task UpdateCustomer(int id, CustomerDTO dto)
         {
             var data=await db.Customers.FindAsync(id);

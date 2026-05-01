@@ -13,5 +13,6 @@ namespace Insurance.Application.Interface
         Task<CustomerDTO> GetById(int id);
         Task UpdateCustomer(int id,CustomerDTO dto);
         Task DeleteCustomer(int id);
+        Task<List<CustomerDTO>> GetAllCustomer();
     }
 }
