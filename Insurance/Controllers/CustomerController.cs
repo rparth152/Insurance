@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Insurance.Controllers
-{    [Route("api/[controller]")]
+{    [Route("api")]
     [ApiController]
     public class CustomerController : ControllerBase
     {
@@ -20,9 +20,10 @@ namespace Insurance.Controllers
         }
         [HttpGet]
         [Route("{id}")]
-        public async Task<IActionResult> GetById(int id) { 
+        public async Task<IActionResult> GetById(int id) 
+        { 
             var data =await service.GetById(id);
-            return Ok(new { Message = "data fetched", data });
+            return Ok(data);
         }
         [HttpGet]
         public async Task<IActionResult> GetAll() { 
